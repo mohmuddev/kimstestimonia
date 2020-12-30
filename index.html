@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>testimonials</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.materialdesignicons.com/5.3.45/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      href="http://www.jqueryscript.net/css/jquerysctipttop.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  </head>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .container {
+        margin: 10px auto;
+      }
+      #mixedSlider {
+        position: relative;
+      }
+      #mixedSlider .MS-content {
+        white-space: nowrap;
+        overflow: hidden;
+        margin: 0 5%;
+      }
+      #mixedSlider .MS-content .item {
+        display: inline-block;
+        width: 33.3333%;
+        position: relative;
+        vertical-align: top;
+        overflow: hidden;
+        height: 100%;
+        white-space: normal;
+        padding: 0 10px;
+      }
+      @media (max-width: 991px) {
+        #mixedSlider .MS-content .item {
+          width: 50%;
+        }
+      }
+      @media (max-width: 767px) {
+        #mixedSlider .MS-content .item {
+          width: 100%;
+        }
+      }
+      #mixedSlider .MS-content .item .imgTitle {
+        position: relative;
+      }
+      #mixedSlider .MS-content .item .imgTitle .blogTitle {
+        margin: 0;
+        text-align: left;
+        letter-spacing: 2px;
+        color: #252525;
+        font-style: italic;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.5);
+        width: 100%;
+        bottom: 0;
+        font-weight: bold;
+        padding: 0 0 2px 10px;
+      }
+      #mixedSlider .MS-content .item .imgTitle img {
+        height: auto;
+        width: 100%;
+      }
+      #mixedSlider .MS-content .item p {
+        font-size: 16px;
+        margin: 2px 10px 0 5px;
+        text-indent: 15px;
+      }
+      #mixedSlider .MS-content .item a {
+        float: right;
+        margin: 0 20px 0 0;
+        font-size: 16px;
+        font-style: italic;
+        color: rgba(173, 0, 0, 0.82);
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: linear 0.1s;
+      }
+      #mixedSlider .MS-content .item a:hover {
+        text-shadow: 0 0 1px grey;
+      }
+      #mixedSlider .MS-controls button {
+        position: absolute;
+        border: none;
+        background-color: transparent;
+        outline: 0;
+        font-size: 50px;
+        top: 95px;
+        color: rgba(0, 0, 0, 0.4);
+        transition: 0.15s linear;
+      }
+      #mixedSlider .MS-controls button:hover {
+        color: rgba(0, 0, 0, 0.8);
+      }
+      @media (max-width: 992px) {
+        #mixedSlider .MS-controls button {
+          font-size: 30px;
+        }
+      }
+      @media (max-width: 767px) {
+        #mixedSlider .MS-controls button {
+          font-size: 20px;
+        }
+      }
+      #mixedSlider .MS-controls .MS-left {
+        left: 0px;
+      }
+      @media (max-width: 767px) {
+        #mixedSlider .MS-controls .MS-left {
+          left: -10px;
+        }
+      }
+      #mixedSlider .MS-controls .MS-right {
+        right: 0px;
+      }
+      @media (max-width: 767px) {
+        #mixedSlider .MS-controls .MS-right {
+          right: -10px;
+        }
+      }
+      #basicSlider {
+        position: relative;
+      }
+
+      #basicSlider .MS-content {
+        white-space: nowrap;
+        overflow: hidden;
+        margin: 0 2%;
+        height: 50px;
+      }
+
+      #basicSlider .MS-content .item {
+        display: inline-block;
+        width: 20%;
+        position: relative;
+        vertical-align: top;
+        overflow: hidden;
+        height: 100%;
+        white-space: normal;
+        line-height: 50px;
+        vertical-align: middle;
+      }
+      @media (max-width: 991px) {
+        #basicSlider .MS-content .item {
+          width: 25%;
+        }
+      }
+      @media (max-width: 767px) {
+        #basicSlider .MS-content .item {
+          width: 35%;
+        }
+      }
+      @media (max-width: 500px) {
+        #basicSlider .MS-content .item {
+          width: 50%;
+        }
+      }
+
+      #basicSlider .MS-content .item a {
+        line-height: 50px;
+        vertical-align: middle;
+      }
+
+      #basicSlider .MS-controls button {
+        position: absolute;
+      }
+
+      #basicSlider .MS-controls .MS-left {
+        top: 35px;
+        left: 10px;
+      }
+
+      #basicSlider .MS-controls .MS-right {
+        top: 35px;
+        right: 10px;
+      }
+
+      .blogTitle {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        background: none !important;
+      }
+      /*contrals style*/
+      .MS-controls span i {
+        color: #fec200;
+        cursor: pointer;
+      }
+
+      /*play button alignment*/
+      .blogTitle {
+        display: flex;
+        justify-items: center;
+        align-content: center;
+      }
+
+      /*--play button animation*/
+      .play-btn {
+        background: #ffc107;
+        border-radius: 50%;
+        text-align: center;
+        width: 70px;
+        height: 70px;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        line-height: 70px;
+      }
+      .play-btn:hover {
+        animation: animate 3s;
+        cursor: pointer;
+      }
+      .play-btn i {
+        color: #ffffff;
+        font-size: 50px;
+      }
+      @keyframes animate {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7);
+        }
+        40% {
+          box-shadow: 0 0 0 50px rgba(255, 193, 7, 0);
+        }
+        80% {
+          box-shadow: 0 0 0 50px rgba(255, 193, 7, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 rgba(255, 193, 7, 0.808);
+        }
+      }
+
+      /* stars */
+      .rate .stars{
+        margin:18px auto;
+        width: 40%;
+        display: flex;
+        justify-content:space-around;
+        align-items: center; 
+      }
+      .rate .stars i{
+       font-size: 30px;
+       color: #fe9800; 
+      }
+      .rate h4,h3{
+        text-align: center;
+        font-family: 'Varela Round', sans-serif;
+        margin-top: -10px;
+        padding: 0;
+      }
+      .rate h4{
+        margin-top: -20px !important;
+        font-style: italic;
+        font-weight: 400;
+        padding-bottom: 10px;
+      }
+      .rate{
+        box-sizing: border-box;       margin-top: -15px;
+       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      /*hide element*/
+      #hideLast{
+        /* visibility: hidden; */
+        display: none !important;
+      }
+ 
+
+/* testimonials overly */
+    [class*="Testimony-overlay-"]{
+    position: fixed;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    
+    }
+
+    [class*="Testimony-overlay-"] div{
+      margin: 0px auto;
+      width: 50%;
+      height: 340px;
+      padding:15px;
+      background-color:#fff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      display: flex;
+      margin-top: 20px;
+      position: relative;
+    }
+    [class*="Testimony-overlay-"] div #jay-close{
+      font-size: 25px;
+      cursor: pointer;
+      margin-top: -10px;
+      position: absolute;
+      float: right;
+      box-shadow: 0 0 5px #333;
+      right: 0;
+      top:0;
+      background: #FFF;
+      border-radius: 100%;
+      padding:3px;
+    }
+
+    /* Hide overlays */
+     .Testimony-overlay-jaylani{
+       display: none;
+     }
+
+     /* Show overlay*/
+     .showOverlay{
+       display: block;
+     }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="mixedSlider">
+        <div class="MS-content">
+          <!--BABA JALANI -->
+          <div class="item">
+              <div class="imgTitle">
+                <div class="blogTitle">
+                  <div class="play-btn" id="jayBtn">
+                    <div><i class="mdi mdi-play" aria-hidden="true"></i></div>
+                  </div>
+                </div>
+                <img src="./images/jaylani.webp" alt="" />
+              </div>
+              <div class="rate">
+                <div class="stars">
+                  <i class="mdi mdi-star"></i>
+                  <i class="mdi mdi-star"></i>
+                  <i class="mdi mdi-star"></i>
+                  <i class="mdi mdi-star"></i>
+                  <i class="mdi mdi-star"></i>
+                </div>
+                <h3>Baba Jeylani</h3>
+                <h4>Fisherman</h4>
+              </div>
+            </div>
+          <!--Jimacaale Bardad-->
+          <div class="item">
+              <div class="imgTitle">
+                <div class="blogTitle">
+                  <div class="play-btn">
+                    <div><i class="mdi mdi-play" aria-hidden="true"></i></div>
+                  </div>
+                </div>
+                <img src="./images/jimcaale.webp" alt="" />
+              </div>
+              <div class="rate">
+                <div class="stars">
+                  <i class="mdi mdi-star"></i>
+                  <i class="mdi mdi-star"></i>
+                  <i class="mdi mdi-star"></i>
+                  <i class="mdi mdi-star"></i>
+                  <i class="mdi mdi-star"></i>
+                </div>
+                <h3>Jimcale Bardad</h3>
+                <h4>Pharmacist</h4>
+              </div>
+            </div>
+          <!--Mahdi Budul-->
+          <div class="item">
+            <div class="imgTitle">
+              <div class="blogTitle">
+                <div class="play-btn">
+                  <div><i class="mdi mdi-play" aria-hidden="true"></i></div>
+                </div>
+              </div>
+              <img src="./images/budul.webp" alt="" />
+            </div>
+            <div class="rate">
+              <div class="stars">
+                <i class="mdi mdi-star"></i>
+                <i class="mdi mdi-star"></i>
+                <i class="mdi mdi-star"></i>
+                <i class="mdi mdi-star"></i>
+                <i class="mdi mdi-star"></i>
+              </div>
+              <h3> Ahmed Mahdi</h3>
+              <h4>Fisherman</h4>
+            </div>
+          </div>
+          <!--Deeqo-->
+          <div class="item">
+            <div class="imgTitle">
+              <div class="blogTitle">
+                <div class="play-btn">
+                  <div><i class="mdi mdi-play" aria-hidden="true"></i></div>
+                </div>
+              </div>
+              <img src="./images/deeqo.webp" alt="" />
+            </div>
+            <div class="rate">
+              <div class="stars">
+                <i class="mdi mdi-star"></i>
+                <i class="mdi mdi-star"></i>
+                <i class="mdi mdi-star"></i>
+                <i class="mdi mdi-star"></i>
+                <i class="mdi mdi-star"></i>
+              </div>
+              <h3>Deeqo</h3>
+              <h4>Cloth seller</h4>
+            </div>
+          </div>
+         <!--Ismahaan-->
+         <div class="item">
+          <div class="imgTitle">
+            <div class="blogTitle">
+              <div class="play-btn">
+                <div><i class="mdi mdi-play" aria-hidden="true"></i></div>
+              </div>
+            </div>
+            <img src="./images/ismahan.webp" alt="" />
+          </div>
+          <div class="rate">
+            <div class="stars">
+              <i class="mdi mdi-star"></i>
+              <i class="mdi mdi-star"></i>
+              <i class="mdi mdi-star"></i>
+              <i class="mdi mdi-star"></i>
+              <i class="mdi mdi-star"></i>
+            </div>
+            <h3>Ismahaan</h3>
+            <h4>Cloth seller</h4>
+          </div>
+        </div>
+          <!--item container-->
+          <div class="item" id="hideLast">
+            <div class="imgTitle">
+              <div class="blogTitle">
+                <div class="play-btn">
+                  <i class="mdi mdi-play" aria-hidden="true"></i>
+                </div>
+              </div>
+              <img src="./images/jaylanitulaa.jpg" alt="" />
+            </div>
+          </div>
+        </div> 
+        
+        <div class="MS-controls">
+          <button class="MS-left">
+            <span><i class="mdi mdi-chevron-double-left"></i></span>
+          </button>
+          <button class="MS-right">
+            <span> <i class="mdi mdi-chevron-double-right"></i></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!--Baba jaylani testimonial-->
+    <div class="Testimony-overlay-jaylani" id="jayoverlay">
+      <div id="ifarameContainer" width="560" height="315">
+        <Span class="mdi mdi-close" id="jay-close" title="close"></span>
+        <iframe id="player" width="100%" height="100%" src="https://www.youtube.com/embed/ZEvBgajjAeY?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+      </div>
+    </div>
+
+
+<!-- frome this javscript starts -->
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+    ></script>
+    <script src="./main.js"></script>
+    <script>
+      /*
+       *   MultiSlider | MIT License
+       *
+       *   Copyright (c) 2017 Trevor Blackman
+       *   http://www.multislider.info
+       *
+       */
+
+      (function($) {
+        // ==== BEGINS PLUGGIN ====
+        $.fn.multislider = function(data, callback) {
+          // ==== CACHE DOM ====
+          var $multislider = $(this);
+          var $msContent = $multislider.find(".MS-content");
+          var $msRight = $multislider.find("button.MS-right");
+          var $msLeft = $multislider.find("button.MS-left");
+          var $imgFirst = $msContent.find(".item:first");
+
+          // === DETERMINE ACTION ====
+          // string = method | object or nothing is to initialize
+          if (typeof data === "string") {
+            getStringArgs(data);
+            return $multislider;
+          } else if (typeof data === "object" || typeof data === "undefined") {
+            init();
+          }
+
+          // ==== PLUGGIN VARIABLES ====
+          var $imgLast,
+            totalWidth,
+            numberVisibleSlides,
+            animateDistance,
+            animateSlideRight,
+            animateSlideLeft,
+            defaults,
+            settings,
+            animateDuration,
+            autoSlideInterval;
+
+          // = INITIALIZE =
+          function init() {
+            minifyContent(); // minify html
+            createSettings(); // merge defaults and user provided options
+            saveData(); // add data object to DOM el with reference to animation functions, allows for methods to reference at any time
+            selectAnimations(); // choose default animation
+          }
+
+          // ==== EVENT HANDLERS ====
+          $msRight.on("click", animateSlideLeft);
+          $msLeft.on("click", animateSlideRight);
+          $multislider.on("click", ".MS-right, .MS-left", resetInterval);
+          $(window).on("resize", findItemWidth);
+
+          // ==== FUNCTIONS (for days...) ====
+          // =================================
+
+          function pauseAbove() {
+            if (window.innerWidth > settings.pauseAbove) {
+              $multislider.addClass("ms-PAUSE");
+            }
+            $(window).on("resize", function() {
+              if (window.innerWidth > settings.pauseAbove) {
+                $multislider.addClass("ms-PAUSE");
+              } else {
+                $multislider.removeClass("ms-PAUSE");
+              }
+            });
+          }
+
+          function pauseBelow() {
+            if (window.innerWidth < settings.pauseBelow) {
+              $multislider.addClass("ms-PAUSE");
+            }
+            $(window).on("resize", function() {
+              if (window.innerWidth < settings.pauseBelow) {
+                $multislider.addClass("ms-PAUSE");
+              } else {
+                $multislider.removeClass("ms-PAUSE");
+              }
+            });
+          }
+
+          // used if method is called after initialization
+          function getStringArgs(str) {
+            if (typeof $multislider.data(str) !== "undefined") {
+              $multislider.data(str)();
+            } else {
+              console.error(
+                "Multislider currently only accepts the following methods: next, prev, pause, play"
+              );
+            }
+          }
+
+          // saves data object to DOM element
+          function saveData() {
+            $multislider.data({
+              pause: function() {
+                $multislider.addClass("ms-PAUSE");
+              },
+              unPause: function() {
+                $multislider.removeClass("ms-PAUSE");
+              },
+              continuous: function() {
+                $multislider.removeClass("ms-PAUSE");
+                continuousLeft();
+              },
+              next: function() {
+                overRidePause(singleLeft);
+              },
+              nextAll: function() {
+                overRidePause(allLeft);
+              },
+              prev: function() {
+                overRidePause(singleRight);
+              },
+              prevAll: function() {
+                overRidePause(allRight);
+              },
+              settings: settings
+            });
+          }
+
+          // used when calling 'next', 'prev' methods
+          function overRidePause(animation) {
+            if ($multislider.hasClass("ms-PAUSE")) {
+              $multislider.removeClass("ms-PAUSE");
+              animation();
+              $multislider.addClass("ms-PAUSE");
+            } else {
+              animation();
+            }
+            resetInterval();
+          }
+
+          // CRITICAL for items to be perfectly side-by-side without floating them
+          function minifyContent() {
+            $msContent
+              .contents()
+              .filter(function() {
+                return this.nodeType == 3 && !/\S/.test(this.nodeValue);
+              })
+              .remove();
+          }
+
+          // updated options with defaults, measure slide widths for animation calculations, carry out setting implementations
+          function createSettings() {
+            defaults = settings || {
+              continuous: false, // endless scrolling with no pauses
+              slideAll: false, // slide all visible slides, or just one at a time
+              // autoSlide: true,	// DEPRECATED
+              interval: 2000, // time bewteen slide animation, 0 or 'false' prevents auto-sliding
+              duration: 500, // duration of slide animation
+              hoverPause: true, // pause slideshow on hover
+              pauseAbove: null, // pause above specified screen width
+              pauseBelow: null // pause below specified screen width
+            };
+
+            settings = $.extend({}, defaults, data);
+
+            findItemWidth();
+            animateDuration = settings.duration;
+
+            if (settings.hoverPause) {
+              pauseHover();
+            }
+            // autoSlide is being depricated | Feb 2 2017
+            if (
+              settings.continuous !== true &&
+              settings.interval !== 0 &&
+              settings.interval !== false &&
+              settings.autoSlide !== false
+            ) {
+              autoSlide();
+            }
+            if (
+              settings.pauseAbove !== null &&
+              typeof settings.pauseAbove === "number"
+            ) {
+              pauseAbove();
+            }
+            if (
+              settings.pauseBelow !== null &&
+              typeof settings.pauseBelow === "number"
+            ) {
+              pauseBelow();
+            }
+          }
+
+          // determine between single and multi-slide animations
+          function selectAnimations() {
+            if (settings.continuous) {
+              settings.autoSlide = false;
+              continuousLeft();
+            } else if (settings.slideAll) {
+              animateSlideRight = $multislider.data("prevAll");
+              animateSlideLeft = $multislider.data("nextAll");
+            } else {
+              animateSlideRight = $multislider.data("prev");
+              animateSlideLeft = $multislider.data("next");
+            }
+          }
+
+          // measure slide width, for animation calculations
+          function findItemWidth() {
+            reTargetSlides();
+            animateDistance = $imgFirst.width();
+            var left = parseInt(
+              $msContent.find(".item:first").css("padding-left")
+            );
+            var right = parseInt(
+              $msContent.find(".item:first").css("padding-right")
+            );
+            if (left !== 0) {
+              animateDistance += left;
+            }
+            if (right !== 0) {
+              animateDistance += right;
+            }
+          }
+
+          // recursive auto-slide loop
+          function autoSlide() {
+            autoSlideInterval = setInterval(function() {
+              if (!$multislider.hasClass("ms-PAUSE")) {
+                animateSlideLeft();
+              }
+            }, settings.interval);
+          }
+
+          function resetInterval() {
+            if (
+              settings.interval !== 0 &&
+              settings.interval !== false &&
+              settings.continuous !== true
+            ) {
+              clearInterval(autoSlideInterval);
+              autoSlide();
+            }
+          }
+
+          // target first and last visible slides before each new animation
+          function reTargetSlides() {
+            $imgFirst = $msContent.find(".item:first");
+            $imgLast = $msContent.find(".item:last");
+          }
+
+          // prevent animation firing if multislider is currently animating
+          // all animations pass through this function, which emits events, and adds/removes animating class
+          function isItAnimating(callback) {
+            if (
+              !$multislider.hasClass("ms-animating") &&
+              !$multislider.hasClass("ms-HOVER") &&
+              !$multislider.hasClass("ms-PAUSE")
+            ) {
+              $multislider.trigger("ms.before.animate"); // event!
+              $multislider.addClass("ms-animating");
+              callback(); //callback is animation
+            }
+          }
+
+          // update multislider at the end of each animation
+          function doneAnimating() {
+            if ($multislider.hasClass("ms-animating")) {
+              $multislider.removeClass("ms-animating");
+              $multislider.trigger("ms.after.animate"); // event!
+            }
+          }
+
+          // logic for pausing and restarting the multislider on hover
+          function pauseHover() {
+            // continuous scroll pause slightly different
+            if (settings.continuous) {
+              $msContent.on("mouseover", function() {
+                doneAnimating();
+                $msContent.children(".item:first").stop();
+              });
+              $msContent.on("mouseout", function() {
+                continuousLeft();
+              });
+            } else {
+              // regular animation pausing
+              $msContent.on("mouseover", function() {
+                $multislider.addClass("ms-HOVER");
+              });
+              $msContent.on("mouseout", function() {
+                $multislider.removeClass("ms-HOVER");
+              });
+            }
+          }
+
+          // calculate remaining animation, if stopped mid-animation and resuming
+          function midAnimateResume() {
+            animateDuration = settings.duration;
+            var currentMargin = parseFloat(
+              $msContent.find(".item:first").css("margin-left")
+            );
+            var percentageRemaining =
+              1 - currentMargin / -(animateDistance - 1);
+            animateDuration = percentageRemaining * animateDuration;
+          }
+
+          // determine how many slides need to be moved over, if slideAll is true
+          function calcNumSlidesToMove() {
+            totalWidth = $msContent.width(); // total width of .MS-content containing all visible slides
+            numberVisibleSlides = Math.floor(totalWidth / animateDistance); // number of (visible) slides needed to be moved in each animation
+          }
+
+          // ==== ANIMATION FUNCTIONS ====
+          // =============================
+          function continuousLeft() {
+            isItAnimating(function() {
+              reTargetSlides();
+              midAnimateResume();
+              $imgFirst.animate(
+                { marginLeft: -(animateDistance + 1) },
+                {
+                  duration: animateDuration,
+                  easing: "linear",
+                  complete: function() {
+                    $imgFirst.insertAfter($imgLast).removeAttr("style");
+                    doneAnimating();
+                    continuousLeft();
+                  }
+                }
+              );
+            });
+          }
+
+          function allLeft() {
+            isItAnimating(function() {
+              reTargetSlides();
+              calcNumSlidesToMove();
+
+              var $clonedItemSet = $msContent.children(".item").clone();
+              var filteredClones = $clonedItemSet.splice(
+                0,
+                numberVisibleSlides
+              );
+
+              $msContent.append(filteredClones);
+
+              $imgFirst.animate(
+                { marginLeft: -totalWidth },
+                {
+                  duration: animateDuration,
+                  easing: "swing",
+                  complete: function() {
+                    $(
+                      $msContent
+                        .children(".item")
+                        .splice(0, numberVisibleSlides)
+                    ).remove();
+                    doneAnimating();
+                  }
+                }
+              );
+            });
+          }
+
+          function allRight() {
+            isItAnimating(function() {
+              reTargetSlides();
+              calcNumSlidesToMove();
+
+              var numberTotalSlides = $msContent.children(".item").length;
+              var $clonedItemSet = $msContent.children(".item").clone();
+              var filteredClones = $clonedItemSet.splice(
+                numberTotalSlides - numberVisibleSlides,
+                numberTotalSlides
+              );
+
+              $($(filteredClones)[0]).css("margin-left", -totalWidth); // give clone array negative margin before preppending
+              $msContent.prepend(filteredClones);
+
+              reTargetSlides();
+
+              $imgFirst.animate(
+                {
+                  marginLeft: 0
+                },
+                {
+                  duration: animateDuration,
+                  easing: "swing",
+                  complete: function() {
+                    numberTotalSlides = $msContent.find(".item").length;
+                    $(
+                      $msContent
+                        .find(".item")
+                        .splice(
+                          numberTotalSlides - numberVisibleSlides,
+                          numberTotalSlides
+                        )
+                    ).remove();
+                    $imgFirst.removeAttr("style");
+                    doneAnimating();
+                  }
+                }
+              );
+            });
+          }
+
+          function singleLeft() {
+            isItAnimating(function() {
+              reTargetSlides();
+              $imgFirst.animate(
+                {
+                  marginLeft: -animateDistance
+                },
+                {
+                  duration: animateDuration,
+                  easing: "swing",
+                  complete: function() {
+                    $imgFirst
+                      .detach()
+                      .removeAttr("style")
+                      .appendTo($msContent);
+                    doneAnimating();
+                  }
+                }
+              );
+            });
+          }
+
+          function singleRight() {
+            isItAnimating(function() {
+              reTargetSlides();
+              $imgLast
+                .css("margin-left", -animateDistance)
+                .prependTo($msContent);
+              $imgLast.animate(
+                {
+                  marginLeft: 0
+                },
+                {
+                  duration: animateDuration,
+                  easing: "swing",
+                  complete: function() {
+                    $imgLast.removeAttr("style");
+                    doneAnimating();
+                  }
+                }
+              );
+            });
+          }
+          return $multislider;
+        };
+      })(jQuery);
+    </script>
+    <script>
+      $("#basicSlider").multislider({
+        continuous: true,
+        duration: 2000
+      });
+      $("#mixedSlider").multislider({
+        duration: 750,
+        interval: 3000
+      });
+    </script>
+  </body>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(["_setAccount", "UA-36251023-1"]);
+    _gaq.push(["_setDomainName", "jqueryscript.net"]);
+    _gaq.push(["_trackPageview"]);
+
+    (function() {
+      var ga = document.createElement("script");
+      ga.type = "text/javascript";
+      ga.async = true;
+      ga.src =
+        ("https:" == document.location.protocol
+          ? "https://ssl"
+          : "http://www") + ".google-analytics.com/ga.js";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</html>
